@@ -1,12 +1,125 @@
-body
-{
-  font-family: Palatino, Georgia, Times, "Times New Roman", serif;
-  font-size: 24px;
+/* ubuntu-300italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-regular - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-500 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-500italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 500;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-700 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-700italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-300 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('/fonts/ubuntu-v15-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-v15-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* ubuntu-mono-regular - latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/ubuntu-mono-v10-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-mono-v10-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-mono-italic - latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/ubuntu-mono-v10-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-mono-v10-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* ubuntu-mono-700italic - latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  font-weight: 700;
+  src: local(''),
+       url('/fonts/ubuntu-mono-v10-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-mono-v10-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* ubuntu-mono-700 - latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('/fonts/ubuntu-mono-v10-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/ubuntu-mono-v10-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /*********/
 /* fonts */
 /*********/
+
+body
+{
+  font-family: 'Ubuntu', serif;
+  font-size: 24px;
+  line-height: 1.3em;
+}
+
 
 dt,
 th,
@@ -23,10 +136,25 @@ article h4,
 article h5,
 article h6
 {
-  font-family: Verdana, Tahoma, Arial, sans;
+  font-family: 'Ubuntu', Tahoma, Arial, sans;
 }
 
-code,
+pre.code
+{
+  background: floralwhite;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+tt.docutils.literal
+{
+  background: rgb(236 236 236);
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 8px;
+}
+
 tt,
 kbd,
 pre,
@@ -34,7 +162,7 @@ nav > div.container,
 span.category,
 span.tag
 {
-  font-family: Courier, "Courier New", monospace;
+  font-family: 'Ubuntu Mono', "Courier New", monospace;
 }
 
 ul,
@@ -123,9 +251,26 @@ th
   font-weight: normal;
 }
 
-td
+/****************************************************************
+ * For tables that look like tickets
+ * Ideally should be in a separate css file and with its own class
+ ****************************************************************/
+
+table:not(.footnote)
 {
-  background-color: #FFC38B;
+  border: 2px dashed grey;
+  border-radius: 1rem;
+}
+
+table:not(.footnote) td
+{
+  padding:0.5rem;
+  padding-left:1rem;
+}
+
+table:not(.footnote) td + td 
+{
+  border-left: 2px dashed grey;
 }
 
 /*********************/
@@ -202,6 +347,12 @@ table.footnote td > p.last,
 table.citation td > p.last
 {
   margin-bottom: 0;
+}
+
+a.footnote-reference
+{
+  vertical-align: super;
+  font-size: .83em;
 }
 
 /***************/
@@ -343,7 +494,12 @@ body > footer
 
 body > footer
 {
-  margin-top: 1em;
+  margin-top: 5rem;
+}
+
+footer img
+{
+  padding: 1rem;
 }
 
 /*******************/
@@ -667,6 +823,12 @@ pre > .vc { color: #268bd2 } /* Name.Variable.Class */
 pre > .vg { color: #268bd2 } /* Name.Variable.Global */
 pre > .vi { color: #268bd2 } /* Name.Variable.Instance */
 pre > .il { color: #2aa198; font-weight: bold } /* Literal.Number.Integer.Long */
+
+img.align-center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
 /*************/
 /* responsive /
