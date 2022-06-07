@@ -56,8 +56,8 @@
   {% include 'base_pagination.html' %}
 
   <footer>
-      <a href='https://github.com/{{ GITHUB_ID }}'><img src='/logos/github_logo.png' style="vertical-align:middle" width="32"></a>
-      <a href='https://gitlab.com/{{ GITLAB_ID }}'><img src='/logos/gitlab_logo.png' style="vertical-align:middle" width="32"></a>
+      <a href='https://github.com/{{ GITHUB_ID }}'><img src='logos/github_logo.png' style="vertical-align:middle" width="32"></a>
+      <a href='https://gitlab.com/{{ GITLAB_ID }}'><img src='logos/gitlab_logo.png' style="vertical-align:middle" width="32"></a>
     {% set attribution = ATTRIBUTION if ATTRIBUTION is defined else 0 %}
     {% if attribution is string %}
       {{ attribution }}
