@@ -6,6 +6,10 @@
   {% if self.canonical_link() %}
     <meta rel='canonical' href='{{ SITEURL}}/{% block canonical_link %}{% endblock %}'/>
   {% endif %}
+  <meta property='og:image' content="{{ SITEURL }}/images/panda_og.png"/>
+  <meta property='og:image:width' content="1200"/>
+  <meta property='og:image:height' content="630"/>
+  <meta property='og:image:alt' content="A cute panda with a green background"/>
   {% include 'base_feed_links.html' %}
   {% if CSS_FILE %}
     {% if CSS_INLINE %}
