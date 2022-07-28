@@ -282,6 +282,22 @@ table:not(.footnote) td + td
   border-left: 2px dashed grey;
 }
 
+/*
+* https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#increasing_specificity_by_duplicating_selector
+*
+* Increase Specificity for borderless tables
+*/
+
+table.borderless.borderless
+{
+  border: none;
+}
+
+table.borderless.borderless td
+{
+  border: none;
+}
+
 /*********************/
 /* rst linenos table */
 /*********************/
