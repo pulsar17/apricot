@@ -881,3 +881,54 @@ img.align-center {
     max-width: 100%;
   }
 }
+
+svg#github-logo{
+  vertical-align: middle;
+  padding: 1rem;
+}
+
+footer a{
+  text-decoration: none;
+  color: transparent;
+}
+/*************/
+/* Dark mode */
+/*************/
+@media (prefers-color-scheme: dark){
+
+  *{
+    scrollbar-color: #454a4d #202324;
+   }
+
+  html, body{
+    background-color: #181a1b;
+    color: #e8e6e3;
+    }
+
+  a{
+    color: #EE913A;
+    }
+
+  tt.docutils.literal{
+    background-color: #232627;
+    }
+
+  article > div.summary > p::after {
+    background: transparent
+                linear-gradient(
+                  rgba(24, 26, 27, 0) 0%,
+                  rgba(24, 26, 27, 0.1) 40%,
+                  rgb(24, 26, 27) 100%
+                );
+    }
+
+  svg#github-logo path#logo{
+    fill: white;
+    }
+
+
+  pre.code{
+    background-color: #0d0d0d;
+    }
+  
+}
