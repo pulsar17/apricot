@@ -3,42 +3,25 @@
 {% block title %}Archives{% endblock %}
 {% block content_title %}Archives{% endblock %}
 
-{% macro dt(SAVE_AS, date, text) %}
-  <dt><a href='{{ SITEURL }}/{{ SAVE_AS.format(date=date).replace('index.html', '') }}'>{{ text }}</a></dt>
+{% macro dt(URL, date, text) %}
+  <dt><a href='{{ SITEURL }}/{{ URL.format(date=date) }}'>{{ text }}</a></dt>
 {% endmacro %}
+
+{% macro dd(URL, date, text) %}
+  <dd>
+    {{ "📅 {date:%d} {date:%B} ".format(date=date) }} 
+    <a href='{{ SITEURL }}/{{ URL.format(date=date) }}'>{{ text }}</a>
+  </dd>
+{% endmacro %}
+
 
 {% block main %}
   <dl id='period-archives'>
-    {% set last_year = None %}
-    {% set last_month = None %}
-    {% for article in dates %}
-      {% if last_year != article.date.year %}
-        {% if not loop.first %}
-    </dd>
-        {% endif %}
-    {{ dt(YEAR_ARCHIVE_SAVE_AS, article.date, article.date.year) }}
-    <dd>
-      {% endif %}
-      {% if last_year != article.date.year or last_month != article.date.month %}
-        {% if not loop.first %}
-          </ul>
-        </dd>
-      </dl>
-        {% endif %}
-      <dl>
-        {{ dt(MONTH_ARCHIVE_SAVE_AS, article.date, article.date.strftime('%B')) }}
-        <dd>
-          <ul class='days'>
-      {% endif %}
-            <li>{{ article.date.day }} <a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></li>
-      {% if loop.last %}
-          </ul>
-        </dd>
-      </dl>
-    </dd>
-      {% endif %}
-      {% set last_year = article.date.year %}
-      {% set last_month = article.date.month %}
+    {% for year, articles in articles|groupby('date.year')|reverse %}
+    {{ dt(YEAR_ARCHIVE_URL, (year,)|to_date, year) }}
+      {% for article in articles %}
+        {{ dd(article.url, article.date, article.title) }}
+      {% endfor %}
     {% endfor %}
   </dl>
 {% endblock %}

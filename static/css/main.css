@@ -213,12 +213,6 @@ pre
 }
 
 
-dd
-{
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
 /*********/
 /* table */
 /*********/
@@ -494,13 +488,13 @@ nav div.container
 nav span.navitem a::before
 {
   content: "[";
-  color: white;
+  color: black;
 }
 
 nav span.navitem a::after
 {
   content: "]";
-  color: white;
+  color: black;
 }
 
 nav span.navitem a:hover::before
@@ -721,12 +715,15 @@ article > div.summary > span.readmore > a
 /* blog archives */
 /*****************/
 
-#period-archives ul.days
-{
-  padding-left: 0;
-  list-style: none;
-}
+  dd{
+    border-left: #a6a6a6 solid;
+    padding: 1rem;
+  }
 
+  dd:hover{
+    border-left: #514e4e solid;
+  }
+  
 /***********************************************/
 /* Solarized Pygments Style                    */
 /* https://github.com/john2x/solarized-pygment */
@@ -885,9 +882,25 @@ footer a{
     fill: white;
     }
 
-
   pre.code{
     background-color: #0d0d0d;
     }
   
+  dd{
+    border-left: #514e4e solid;
+  }
+  
+  dd:hover{
+    border-left: #a6a6a6 solid;
+  }
+
+  nav span.navitem a::before
+  {
+    color: white;
+  }
+  
+  nav span.navitem a::after
+  {
+    color: white;
+  }
 }
