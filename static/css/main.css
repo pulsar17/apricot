@@ -544,14 +544,10 @@ article > header > h2
 /* paginatior */
 /**************/
 
-#paginator
+div#paginator
 {
   text-align: center;
-}
-
-#paginator span
-{
-  margin: 0 0.5ch;
+  margin-top: 3rem;
 }
 
 /***************/
@@ -839,6 +835,7 @@ footer #socials a{
 
 footer div#thanks{
   font-size: 0.8em;
+  margin: 1rem auto;
 }
 
 /*************/
