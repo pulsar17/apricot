@@ -832,9 +832,13 @@ svg#github-logo{
   padding: 1rem;
 }
 
-footer a{
+footer #socials a{
   text-decoration: none;
   color: transparent;
+}
+
+footer div#thanks{
+  font-size: 0.8em;
 }
 
 /*************/
