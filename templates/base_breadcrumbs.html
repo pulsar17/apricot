@@ -1,9 +1,8 @@
-{# can be more *programmable*, in the specific type pages, than this hardcoded style #}
 {% macro crumb(url, name, pos) %}
   &gt;
-  {% set clean_url = url.removesuffix('/index.html').removesuffix('.html') %}
+  <!-- {% set clean_url = url.removesuffix('/index.html').removesuffix('.html') %} -->
   <span itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
-    <a itemprop='item' href='{{ SITEURL }}/{{ clean_url }}'><span itemprop='name'>{{ name }}</span></a>
+    <a itemprop='item' href='{{ SITEURL }}/{{ url }}'><span itemprop='name'>{{ name }}</span></a>
     <meta itemprop='position' content='{{ pos }}'/>
   </span>
 {% endmacro %}
@@ -19,13 +18,21 @@
   </span>
 {% endmacro %}
 
+{#
+Generate breadcrumbs of the form
+    Home > Categories > Talks > My first ever talk
+    Home > Categories > Reviews
+    Home > Archives > 2022 > October
+#}
 <div class='breadcrumb' itemscope itemtype='https://schema.org/BreadcrumbList'>
   {{ crumb_home() }}
+
   {% if article or page %}
     {% set obj = article or page %}
-    {{ crumb(CATEGORIES_SAVE_AS or 'categories.html', 'Categories', 2) }}
+    {{ crumb(CATEGORIES_SAVE_AS or 'categories', 'Categories', 2) }}
     {{ crumb(obj.category.save_as, obj.category.name, 3) }}
     {{ crumb(obj.save_as, obj.title|truncate(20), 4) }}
+
   {% elif author or category or tag %}
     {% for obj, title, SAVE_AS in (
       (author, 'authors', AUTHORS_SAVE_AS),
@@ -33,39 +40,31 @@
       (tag, 'tags', TAGS_SAVE_AS),
     ) %}
       {% if obj %}
-        {% if articles_page.number > 1 %}
-          {{ crumb(obj.save_as.replace('.html', '%d.html' % articles_page.number), 'Page %d' % articles_page.number, 4) }}
-        {% endif %}
+        {{ crumb(SAVE_AS or title, title|title, 2) }}
         {{ crumb(obj.save_as, obj.name, 3) }}
-        {{ crumb(SAVE_AS or title ~ '.html', title|title, 2) }}
+        {% if articles_page.number > 1 %}
+            {% set page_num = articles_page.number %}
+            {{ crumb(obj.save_as.replace('.html', '{}.html'.format(page_num)), 'Page {}'.format(page_num), 4) }}
+        {% endif %}
       {% endif %}
     {% endfor %}
+
   {% elif period %}
-    {# dirty, dirty, dirty date #}
-    {% if articles %}
-      {% set d = (period + ('January', '1')[period|length - 1:])|join(' ') %}
-      {% set d = articles[0].date.strptime(d, '%Y %B %d') %}
-    {% endif %}
-    {% for i in range(period|length - 1, -1, -1) %}
-      {% set p = period[i]|string %}
-      {% if i == 0 and YEAR_ARCHIVE_SAVE_AS %}
-        {% set url = YEAR_ARCHIVE_SAVE_AS.replace('{date:%Y}', p).replace('{date:%y}', p) %}
-        {{ crumb(url, p, 2) }}
-      {% elif d and (i == 1 or i == 2) and MONTH_ARCHIVE_SAVE_AS %}
-        {{ crumb((MONTH_ARCHIVE_SAVE_AS, DAY_ARCHIVE_SAVE_AS)[i - 1].format(date=d), p, 2) }}
-      {% else %}
-        {{ p }}
-        &lt;
+    {% set date = period_num|to_date %}
+    {% for value, url, position in period|zip((YEAR_ARCHIVE_URL, MONTH_ARCHIVE_URL), range(2, 4)) %}
+      {{ crumb(url.format(date=date), value, position) }}
+    {% endfor %}
+
+  {#
+    For main navigation breadcrumbs like
+        Home > Categories
+        Home > Tags
+  #}
+  {% elif page_name %}
+    {% for main_nav in MAIN_NAVIGATION %}
+      {% if page_name.startswith(main_nav) %}
+        {{ crumb(main_nav, main_nav|title, 2) }}
       {% endif %}
     {% endfor %}
-  {% elif page_name.startswith('index') %}
-  {% elif page_name.startswith('authors') %}
-    {{ crumb(AUTHORS_SAVE_AS or 'authors.html', 'Authors', 2) }}
-  {% elif page_name.startswith('categories') %}
-    {{ crumb(CATEGORIES_SAVE_AS or 'categories.html', 'Categories', 2) }}
-  {% elif page_name.startswith('tags') %}
-    {{ crumb(TAGS_SAVE_AS or 'tags.html', 'Tags', 2) }}
-  {% elif page_name.startswith('archives') %}
-    {{ crumb(ARCHIVES_SAVE_AS or 'archives.html', 'Archives', 2) }}
   {% endif %}
 </div>

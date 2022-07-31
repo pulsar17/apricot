@@ -25,7 +25,7 @@
   {% endif %}
 </head>
 
-<body itemscope itemtype='https://schema.org/WebPage' itemref='publisher-name publisher-description'>
+<body itemscope itemtype='https://schema.org/WebPage' itemref='publisher-name{% if SITE_DESCRIPTION %} publisher-description{% endif %}'>
   <div id='header'>
     <div class='content'>
       <div itemscope itemtype='https://schema.org/Organization' itemid='{{ SITEURL }}'>
