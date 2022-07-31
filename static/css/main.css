@@ -512,13 +512,11 @@ nav span.navitem a:hover::after
 nav span.navitem a.active::before
 {
   content: "]";
-  color: white;
 }
 
 nav span.navitem a.active::after
 {
   content: "[";
-  color: white;
 }
 
 div.breadcrumb
