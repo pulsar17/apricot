@@ -144,6 +144,11 @@ pre.code
   border-radius: 1rem;
 }
 
+pre.literal-block:not(.code)
+{
+    font-family: "Courier New", monospace;
+}
+
 tt.docutils.literal
 {
   background: rgb(236 236 236);
