@@ -583,6 +583,21 @@ article > header
   text-align: center;
 }
 
+time::before
+{
+  content: "🗓️ ";
+  font-style: normal;
+}
+
+article .date
+{
+  font-style: italic;
+}
+
+article .modified
+{
+  margin-top: 2.5rem;
+}
 /****************/
 /* translations */
 /****************/

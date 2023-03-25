@@ -67,13 +67,9 @@
       </div>
       {% endif %}
       <h2 itemprop='name'><a href='{{ SITEURL }}/{{ obj.url }}'>{{ obj.title|escape }}</a></h2>
-      <p>
+      <div class='date'>
         <time itemprop='datePublished' datetime='{{ obj.date }}' title='{{ obj.date }}'>{{ obj.locale_date }}</time>
-        {% if obj.modified %}
-          *
-          <time itemprop='dateModified' datetime='{{ obj.modified }}' title='{{ obj.modified }}'>{{ obj.locale_modified }}</time>
-        {% endif %}
-      </p>
+      </div>
       <p class='author-cat-tag'>
         {% for obj in obj.authors or (obj.author, ) %}
           {{ author(obj) }}
@@ -93,6 +89,12 @@
       <div>
         {{ obj.content }}
       </div>
+        {% if obj.modified %}
+        <div class="date modified">
+          Last modified: 
+          <time itemprop='dateModified' datetime='{{ obj.modified }}' title='{{ obj.modified }}'>{{ obj.locale_modified }}</time>
+        </div>
+        {% endif %}
     {% else %}
       <div class='summary'>
         <p itemprop='description'>
