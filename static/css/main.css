@@ -128,6 +128,7 @@
     /* dark mode */
   --dark-mode-apricot-main: #EE913A;
   --dark-mode-apricot-main-darker: #C1600A;
+  --literal-grey: #393939;
 }
 
 body
@@ -153,11 +154,10 @@ div.code pre
 
 div.code button.copy
 {
-    border-color: var(--apricot-main);
     background: inherit;
     color: black;
     border-radius: 0.5rem;
-    border: dashed 0.2rem #C1600A;
+    border: dashed 0.2rem #797979;
     padding: 0.4rem 0.8rem;
     position: absolute;
     top: 16px;
@@ -179,7 +179,7 @@ pre.literal-block:not(.code)
 
 tt.docutils.literal
 {
-  background: rgb(236 236 236);
+  background-color: var(--grey);
   padding: 2px;
   padding-left: 4px;
   padding-right: 4px;
@@ -913,7 +913,7 @@ footer div#thanks{
   }
 
   tt.docutils.literal{
-    background-color: #393939;
+    background-color: var(--grey);
     }
 
   article > div.summary > p::after {
@@ -965,4 +965,16 @@ footer div#thanks{
   {
     color: white;
   }
+}
+
+
+/*****************/
+/* Mobile phones */
+/*****************/
+@media screen and (max-width: 767px){
+
+    div.code button.copy:hover
+    {
+        border-color: #797979;
+    }
 }

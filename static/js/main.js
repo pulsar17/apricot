@@ -13,13 +13,12 @@ function init(){
             copyToClipboard(codeText).then(
                 /* success */
                 () => {
-                    const {borderColor, ..._} = window.getComputedStyle(copyBtn)
                     copyBtn.innerText = "Copied!" 
                     copyBtn.style.borderColor = '#2a8e29'
                     copyBtn.style.color = '#2a8e29'
                     setTimeout(() => {
                         copyBtn.innerText = "Copy"
-                        copyBtn.style.borderColor = borderColor // just a nicety on a touch device
+                        copyBtn.style.borderColor = ""
                         copyBtn.style.color = ""
 
                     }, 800) 
