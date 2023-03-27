@@ -137,11 +137,39 @@ body
   line-height: 1.3em;
 }
 
-pre.code
+div.code
 {
+  position: relative;
   background: floralwhite;
   padding: 2rem;
   border-radius: 1rem;
+  margin: 1.5rem auto;
+}
+
+div.code pre
+{
+    margin: 0;
+}
+
+div.code button.copy
+{
+    border-color: var(--apricot-main);
+    background: inherit;
+    color: black;
+    border-radius: 0.5rem;
+    border: dashed 0.2rem #C1600A;
+    padding: 0.4rem 0.8rem;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 70%;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+div.code button.copy:hover
+{
+    border-color: white;
 }
 
 pre.literal-block:not(.code)
@@ -901,9 +929,24 @@ footer div#thanks{
     fill: white;
     }
 
-  pre.code{
+  div.code{
     background-color: #0d0d0d;
     }
+    
+  div.code button.copy
+  {
+    color: white;
+  }
+
+  div.code button.copy:hover
+  {
+      border-color: white;
+  }
+
+  div.code button.clicked
+  {
+    border-color: #34b233;
+  }
   
   dd{
     border-left: #514e4e solid;
