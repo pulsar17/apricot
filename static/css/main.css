@@ -886,6 +886,14 @@ footer div#thanks{
   margin: 1rem auto;
 }
 
+iframe {
+  display: block;
+  border-radius: 2rem;
+  margin: 0 auto;
+  height: 50vh;
+  width: 50vw;
+}
+
 /*************/
 /* Dark mode */
 /*************/
@@ -976,5 +984,10 @@ footer div#thanks{
     div.code button.copy:hover
     {
         border-color: #797979;
+    }
+
+    iframe {
+      height: 40vh;
+      width: 80vw;
     }
 }
