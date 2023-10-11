@@ -125,10 +125,11 @@
     /* light mode */
   --apricot-main: #C1600A;
   --apricot-main-darker: #955501;
+  --grey: #d5d5d5;
     /* dark mode */
   --dark-mode-apricot-main: #EE913A;
   --dark-mode-apricot-main-darker: #C1600A;
-  --grey: #393939;
+  --dark-mode-grey: #393939;
 }
 
 body
@@ -169,7 +170,7 @@ div.code button.copy
 
 div.code button.copy:hover
 {
-    border-color: white;
+    border-color: black;
 }
 
 pre.literal-block:not(.code)
@@ -972,6 +973,16 @@ iframe {
   nav span.navitem a::after
   {
     color: white;
+  }
+
+  tt.docutils.literal
+  {
+    background-color: var(--dark-mode-grey);
+  }
+
+  div.code button.copy:hover
+  {
+    border-color: white;
   }
 }
 
