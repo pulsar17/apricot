@@ -12,6 +12,10 @@
     <meta property='og:image:height' content="630"/>
     <meta property='og:image:alt' content="A cute panda with a green background"/>
     <meta name="description" content="pulsar17's blog" />
+    {% if MASTODON_INSTANCE_DOMAIN %}
+      <link rel="me" href="https://{{ MASTODON_INSTANCE_DOMAIN }}/{{ MASTODON_USERNAME }}"/>
+      <meta name="fediverse:creator" content="{{ MASTODON_USERNAME }}@{{ MASTODON_INSTANCE_DOMAIN }}">
+    {% endif %}
 
     {% include 'base_feed_links.html' %}
     {% if CSS_FILE %}
